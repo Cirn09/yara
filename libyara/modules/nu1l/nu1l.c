@@ -20,7 +20,7 @@ define_function(key)
 begin_declarations
 
   declare_integer("_len");
-  declare_integer("fmt");
+  declare_integer("_fmt");
   declare_integer_array("IN");
   declare_integer_array("buf");
   declare_function("do1", "sii", "i", do1);
