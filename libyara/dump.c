@@ -275,64 +275,64 @@ void code_dump(YR_SCAN_CONTEXT* context)
     case OP_JUNDEF_P:
       printf("JUNDEF_P ");
 
-      putchar('\n');
       ip = jmp_if_patched(0, ip);
+      putchar('\n');
       break;
 
     case OP_JL_P:
       printf("JL_P ");
 
-      putchar('\n');
       ip = jmp_if_patched(r1.i < r2.i, ip);
+      putchar('\n');
       break;
 
     case OP_JLE_P:
       printf("JLE_P ");
 
-      putchar('\n');
       ip = jmp_if_patched(r1.i <= r2.i, ip);
+      putchar('\n');
       break;
 
     case OP_JTRUE:
       printf("JTRUE ");
 
-      putchar('\n');
       ip = jmp_if_patched(0, ip);
+      putchar('\n');
       break;
 
     case OP_JTRUE_P:
       printf("JTRUE_P ");
 
-      putchar('\n');
       ip = jmp_if_patched(0, ip);
+      putchar('\n');
       break;
 
     case OP_JFALSE:
       printf("JFALSE ");
 
-      putchar('\n');
       ip = jmp_if_patched(0, ip);
+      putchar('\n');
       break;
 
     case OP_JFALSE_P:
       printf("JFALSE_P ");
 
-      putchar('\n');
       ip = jmp_if_patched(0, ip);
+      putchar('\n');
       break;
 
     case OP_JZ:
       printf("JZ ");
 
-      putchar('\n');
       ip = jmp_if_patched(r1.i == 0, ip);
+      putchar('\n');
       break;
 
     case OP_JZ_P:
       printf("JZ_P ");
 
-      putchar('\n');
       ip = jmp_if_patched(r1.i == 0, ip);
+      putchar('\n');
       break;
 
     case OP_AND:
@@ -513,7 +513,6 @@ void code_dump(YR_SCAN_CONTEXT* context)
       p64(yr_unaligned_u64(ip));
 
       putchar('\n');
-      printf("OF_PERCENT\n");
       ip += sizeof(uint64_t);
       break;
 
