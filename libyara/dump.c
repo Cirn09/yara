@@ -39,6 +39,8 @@ static const uint8_t* jmp_if_patched(int condition, const uint8_t* ip)
   off = yr_unaligned_u32(ip);
   p32(off);
   off = sizeof(int32_t);
+  if (*(ip + off) == 0)
+    off += 4;
 
   return ip + off;
 }
@@ -407,11 +409,9 @@ void code_dump(YR_SCAN_CONTEXT* context)
 
     case OP_INIT_RULE:
       printf("INIT_RULE ");
+      ip = jmp_if_patched(RULE_IS_DISABLED(current_rule), ip);
 
       putchar('\n');
-      ip = jmp_if_patched(RULE_IS_DISABLED(current_rule), ip);
-      if (*ip == 0)
-        ip += 4;
       break;
 
     case OP_MATCH_RULE:
