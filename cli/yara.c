@@ -938,6 +938,20 @@ static void print_compiler_error(
   }
 }
 
+static void print_all_no_match_string(YR_STRING* string)
+{
+	if (STRING_IS_HEX(string))
+	{
+		printf("	%s= {", string->identifier);
+		for (int i = 0; i < string->length; i++)
+			printf("%s%02X", (i == 0 ? "" : " "), string->string[i]);
+
+		printf("}");
+	}
+	else
+		printf("	%s=\"%s\"\n", string->identifier, string->string);
+}
+
 static void print_rules_stats(YR_RULES* rules)
 {
   YR_RULES_STATS stats;
