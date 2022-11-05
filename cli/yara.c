@@ -989,6 +989,7 @@ static int handle_message(
 {
   const char* tag;
   bool show = true;
+  int res = 1;
 
   if (tags[0] != NULL)
   {
@@ -1105,6 +1106,7 @@ static int handle_message(
 
         yr_string_matches_foreach(context, string, match)
         {
+          res=0;
           if (show_string_length)
             _tprintf(
                 _T("0x%" PRIx64 ":%d:%" PF_S),
@@ -1132,6 +1134,10 @@ static int handle_message(
 
           _tprintf(_T("\n"));
         }
+      }
+      if (res)
+      {
+        print_all_no_match_string(string);
       }
     }
 
