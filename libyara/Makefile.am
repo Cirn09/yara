@@ -91,6 +91,8 @@ endif
 # MODULES += modules/yourmodule.c
 #
 
+MODULES += modules/nu1l/nu1l.c
+
 #
 # When bison is used in POSIX yacc emulation mode (-y/--yacc option) it
 # produces warnings if we use Bison-specific features that are not supported
