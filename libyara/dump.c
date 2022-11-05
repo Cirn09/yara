@@ -92,6 +92,7 @@ void code_dump(YR_SCAN_CONTEXT* context)
   {
     // Read the opcode from the address indicated by the instruction pointer.
     opcode = *ip;
+    printf("%08x ", (uint32_t) (ip - context->rules->code_start));
 
     // Advance the instruction pointer, which now points past the opcode.
     ip++;
