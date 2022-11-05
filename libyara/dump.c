@@ -37,6 +37,7 @@ static const uint8_t* jmp_if_patched(int condition, const uint8_t* ip)
 {
   int32_t off = 0;
   off = yr_unaligned_u32(ip);
+  putchar('+');
   p32(off);
   off = sizeof(int32_t);
   if (*(ip + off) == 0)
@@ -88,7 +89,8 @@ void code_dump(YR_SCAN_CONTEXT* context)
 
   puts("=================== START ===================");
 
-  while (!stop)
+//   while (!stop)
+  for (int iiii = 0; iiii<1000; iiii++)
   {
     // Read the opcode from the address indicated by the instruction pointer.
     opcode = *ip;
@@ -842,7 +844,7 @@ void code_dump(YR_SCAN_CONTEXT* context)
       break;
 
     default:
-      printf("UNKNOWN_{%02x} ", *ip);
+      printf("UNKNOWN_{%02x} \n", *ip);
       break;
     }
   }
