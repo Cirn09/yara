@@ -22,6 +22,7 @@
 
 #include <yara/dump.h>
 
+#define is_undef(x) x
 #define MEM_SIZE YR_MAX_LOOP_NESTING*(YR_MAX_LOOP_VARS + YR_INTERNAL_LOOP_VARS)
 
 #define p8(x)  printf("%02x ", (uint8_t) x)
@@ -265,7 +266,7 @@ void code_dump(YR_SCAN_CONTEXT* context)
     case OP_JNUNDEF:
       printf("JNUNDEF ");
 
-      ip = jmp_if_patched(!(r1), ip);
+      ip = jmp_if_patched(!is_undef(r1), ip);
       putchar('\n');
       break;
 
@@ -273,7 +274,7 @@ void code_dump(YR_SCAN_CONTEXT* context)
       printf("JUNDEF_P ");
 
       putchar('\n');
-      ip = jmp_if_patched((r1), ip);
+      ip = jmp_if_patched(is_undef(r1), ip);
       break;
 
     case OP_JL_P:
@@ -294,28 +295,28 @@ void code_dump(YR_SCAN_CONTEXT* context)
       printf("JTRUE ");
 
       putchar('\n');
-      ip = jmp_if_patched(!(r1) && r1.i, ip);
+      ip = jmp_if_patched(!is_undef(r1) && r1.i, ip);
       break;
 
     case OP_JTRUE_P:
       printf("JTRUE_P ");
 
       putchar('\n');
-      ip = jmp_if_patched(!(r1) && r1.i, ip);
+      ip = jmp_if_patched(!is_undef(r1) && r1.i, ip);
       break;
 
     case OP_JFALSE:
       printf("JFALSE ");
 
       putchar('\n');
-      ip = jmp_if_patched(!(r1) && !r1.i, ip);
+      ip = jmp_if_patched(!is_undef(r1) && !r1.i, ip);
       break;
 
     case OP_JFALSE_P:
       printf("JFALSE_P ");
 
       putchar('\n');
-      ip = jmp_if_patched(!(r1) && !r1.i, ip);
+      ip = jmp_if_patched(!is_undef(r1) && !r1.i, ip);
       break;
 
     case OP_JZ:
