@@ -840,10 +840,8 @@ void code_dump(YR_SCAN_CONTEXT* context)
       break;
 
     default:
-      YR_DEBUG_FPRINTF(
-          2, stderr, "- case <unknown instruction>: // %s()\n", __FUNCTION__);
-      // Unknown instruction, this shouldn't happen.
-      assert(false);
+      printf("UNKNOWN_{%02x} ", *ip);
+      break;
     }
   }
 
