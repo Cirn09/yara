@@ -39,6 +39,13 @@ jobs:
           ./configure ${{ matrix.config }}
       - name: Build
         run: make clean && make
+
+      - name: Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: standard-build
+          path: ${{ github.workspace }}
+
       - name: Run tests
         run: make check
       - name: Print tests errors
@@ -70,6 +77,12 @@ jobs:
       - name: Build
         run: make clean && make
 
+      - name: Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: mingw-build
+          path: ${{ github.workspace }}
+
   bazel-build:
     # The ubuntu-20.04 virtual environment has Bazel installed, see:
     # https://github.com/actions/virtual-environments
@@ -88,5 +101,12 @@ jobs:
       - uses: actions/checkout@v2
       - name: Build
         run: bazel build @jansson//... //tests/...
+
+      - name: Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: bazel-build
+          path: ${{ github.workspace }}
+      
       - name: Run tests
         run: bazel test --test_output=errors //tests/...
