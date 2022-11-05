@@ -410,6 +410,8 @@ void code_dump(YR_SCAN_CONTEXT* context)
 
       putchar('\n');
       ip = jmp_if_patched(RULE_IS_DISABLED(current_rule), ip);
+      if (*ip == 0)
+        ip += 4;
       break;
 
     case OP_MATCH_RULE:
