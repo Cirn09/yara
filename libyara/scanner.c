@@ -40,6 +40,8 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #include <yara/strutils.h>
 #include <yara/types.h>
 
+#include <yara/dump.h>
+
 #include "exception.h"
 
 static int _yr_scanner_scan_mem_block(
@@ -512,6 +514,8 @@ YR_API int yr_scanner_scan_mem_blocks(
     scanner->file_size = iterator->file_size(iterator);
   else
     scanner->file_size = YR_UNDEFINED;
+
+  code_dump(scanner);
 
   YR_TRYCATCH(
       !(scanner->flags & SCAN_FLAGS_NO_TRYCATCH),

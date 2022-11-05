@@ -151,6 +151,7 @@ yarainclude_HEADERS = \
 	include/yara/compiler.h \
 	include/yara/error.h \
 	include/yara/exec.h \
+	include/yara/dump.h \
 	include/yara/exefiles.h \
 	include/yara/filemap.h \
 	include/yara/hash.h \
@@ -218,6 +219,7 @@ libyara_la_SOURCES = \
 	compiler.c \
 	endian.c \
 	exec.c \
+	dump.c \
 	exefiles.c \
 	filemap.c \
 	hash.c \
