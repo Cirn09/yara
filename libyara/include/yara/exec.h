@@ -108,23 +108,28 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #define OP_ITER_END                   60
 #define OP_JZ                         61
 #define OP_JZ_P                       62
-#define OP_PUSH_8                     63
-#define OP_PUSH_16                    64
-#define OP_PUSH_32                    65
-#define OP_PUSH_U                     66
-#define OP_CONTAINS                   67
-#define OP_STARTSWITH                 68
-#define OP_ENDSWITH                   69
-#define OP_ICONTAINS                  70
-#define OP_ISTARTSWITH                71
-#define OP_IENDSWITH                  72
-#define OP_IEQUALS                    73
-#define OP_OF_PERCENT                 74
-#define OP_OF_FOUND_IN                75
-#define OP_COUNT_IN                   76
-#define OP_DEFINED                    77
-#define OP_ITER_START_TEXT_STRING_SET 78
-#define OP_OF_FOUND_AT                79
+
+
+#define OP_PUSH_8                     63+3
+#define OP_PUSH_16                    64+3
+#define OP_PUSH_32                    65+3
+#define OP_PUSH_U                     66+3
+#define OP_CONTAINS                   67+3
+#define OP_STARTSWITH                 68+3
+#define OP_ENDSWITH                   69+3
+#define OP_ICONTAINS                  70+3
+#define OP_ISTARTSWITH                71+3
+#define OP_IENDSWITH                  72+3
+#define OP_IEQUALS                    73+3
+#define OP_OF_PERCENT                 74+3
+#define OP_OF_FOUND_IN                75+3
+#define OP_COUNT_IN                   76+3
+#define OP_DEFINED                    77+3
+
+// unkonw
+#define OP_ITER_START_TEXT_STRING_SET 78+3
+#define OP_OF_FOUND_AT                79+3
+
 
 #define _OP_EQ    0
 #define _OP_NEQ   1

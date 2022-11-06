@@ -40,8 +40,8 @@ static const uint8_t* jmp_if_patched(int condition, const uint8_t* ip)
   putchar('+');
   p32(off);
   off = sizeof(int32_t);
-  if (*(ip + off) == 0)
-    off += 4;
+  // if (*(ip + off) == 0)
+  //   off += 4;
 
   return ip + off;
 }
