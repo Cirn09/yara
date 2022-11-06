@@ -32,7 +32,7 @@
 #define f32(x) printf("%f ", (float) x)
 #define f64(x) printf("%f ", (double) x)
 #define ps(x)  printf("%s ", (char*) x)
-#define u32(x) printf("%u ", (uint32_t) x)
+#define u32(x) if (x>0) printf("%x ", (uint32_t) x); else printf("-%x ", (uint32_t) -x);
 
 static const uint8_t* jmp_if_patched(int condition, const uint8_t* ip)
 {
