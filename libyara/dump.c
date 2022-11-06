@@ -32,13 +32,14 @@
 #define f32(x) printf("%f ", (float) x)
 #define f64(x) printf("%f ", (double) x)
 #define ps(x)  printf("%s ", (char*) x)
+#define u32(x) printf("%u ", (uint32_t) x)
 
 static const uint8_t* jmp_if_patched(int condition, const uint8_t* ip)
 {
   int32_t off = 0;
   off = yr_unaligned_u32(ip);
   putchar('+');
-  p32(off);
+  u32(off);
   off = sizeof(int32_t);
   // if (*(ip + off) == 0)
   //   off += 4;
